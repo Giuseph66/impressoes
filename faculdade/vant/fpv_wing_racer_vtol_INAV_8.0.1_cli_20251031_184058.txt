@@ -1,0 +1,325 @@
+diff all
+
+# version
+# INAV/MATEKF411 8.0.1 Sep 15 2025 / 11:16:17 (ae47bcba) 
+# GCC-13.2.1 20231009
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults noreboot
+
+# resources
+
+# Timer overrides
+
+# Outputs [servo]
+servo 1 800 2200 1500 100
+servo 2 800 2200 1500 -100
+
+# safehome
+
+# Fixed Wing Approach
+
+# features
+feature THR_VBAT_COMP
+feature GPS
+feature LED_STRIP
+feature PWM_OUTPUT_ENABLE
+feature FW_AUTOTRIM
+
+# beeper
+
+# blackbox
+blackbox -NAV_ACC
+blackbox NAV_POS
+blackbox NAV_PID
+blackbox MAG
+blackbox ACC
+blackbox ATTI
+blackbox RC_DATA
+blackbox RC_COMMAND
+blackbox MOTORS
+blackbox -GYRO_RAW
+blackbox -PEAKS_R
+blackbox -PEAKS_P
+blackbox -PEAKS_Y
+blackbox SERVOS
+
+# Receiver: Channel map
+
+# Ports
+serial 1 2 115200 115200 0 115200
+serial 30 4096 115200 115200 0 115200
+
+# LEDs
+led 0 0,0:S:AE:6
+
+# LED color
+
+# LED mode_color
+mode_color 6 1 13
+
+# Modes [aux]
+aux 0 0 0 1550 2100
+aux 1 1 1 900 1225
+aux 2 12 1 1700 2100
+aux 3 21 6 1700 2100
+aux 4 54 1 1300 1700
+aux 5 42 6 1700 2100
+aux 6 43 5 1050 1450
+aux 7 44 5 1450 1850
+aux 8 62 2 900 1300
+aux 9 63 2 1300 1700
+aux 10 13 3 1700 2100
+
+# Adjustments [adjrange]
+
+# Receiver rxrange
+
+# temp_sensor
+
+# Mission Control Waypoints [wp]
+#wp 0 invalid
+
+# OSD [osd_layout]
+osd_layout 0 0 3 3 H
+osd_layout 0 1 1 12 V
+osd_layout 0 2 0 0 V
+osd_layout 0 3 8 6 V
+osd_layout 0 4 8 6 V
+osd_layout 0 7 24 12 V
+osd_layout 0 9 23 11 V
+osd_layout 0 11 1 10 V
+osd_layout 0 12 1 4 H
+osd_layout 0 13 24 6 V
+osd_layout 0 14 24 4 V
+osd_layout 0 15 23 5 V
+osd_layout 0 22 4 8 V
+osd_layout 0 23 23 8 V
+osd_layout 0 28 13 11 V
+osd_layout 0 30 1 2 V
+osd_layout 0 32 1 11 V
+osd_layout 0 40 23 9 V
+osd_layout 0 41 1 7 V
+osd_layout 0 42 1 6 V
+osd_layout 0 86 1 9 V
+osd_layout 0 98 1 3 H
+osd_layout 0 105 21 12 V
+osd_layout 0 109 13 12 V
+osd_layout 0 110 7 12 V
+osd_layout 0 125 23 7 V
+osd_layout 1 2 0 0 V
+osd_layout 1 3 8 6 V
+osd_layout 1 4 8 6 V
+osd_layout 1 9 1 12 V
+osd_layout 1 16 3 2 V
+osd_layout 1 17 3 3 V
+osd_layout 1 32 23 10 V
+osd_layout 1 41 2 11 V
+osd_layout 1 42 2 10 V
+osd_layout 2 2 0 0 V
+osd_layout 2 3 8 6 V
+osd_layout 2 4 8 6 V
+osd_layout 2 7 13 13 V
+osd_layout 2 9 2 12 V
+osd_layout 2 17 3 3 V
+osd_layout 2 32 3 13 V
+osd_layout 3 2 0 0 V
+osd_layout 3 3 8 6 V
+osd_layout 3 4 8 6 V
+osd_layout 3 7 13 13 V
+osd_layout 3 9 2 12 V
+osd_layout 3 16 3 3 V
+osd_layout 3 32 3 13 V
+
+# Programming: logic
+logic 0 0 -1 4 1 7 0 0 0
+logic 1 0 -1 5 1 7 0 0 0
+logic 2 0 -1 6 1 7 0 0 0
+logic 3 0 0 25 0 1 0 0 0
+logic 4 0 1 25 0 3 0 0 0
+logic 5 0 2 25 0 5 0 0 0
+
+# Programming: global variables
+
+# Programming: PID controllers
+
+# OSD: custom elements
+
+# master
+set gyro_anti_aliasing_lpf_hz = 0
+set gyro_main_lpf_hz = 125
+set dynamic_gyro_notch_q = 250
+set dynamic_gyro_notch_min_hz = 30
+set setpoint_kalman_enabled = OFF
+set gyro_zero_x = 46
+set gyro_zero_y = 40
+set gyro_zero_z = 10
+set ins_gravity_cmss =  996.111
+set acc_hardware = MPU6500
+set acczero_x = 9
+set acczero_y = 18
+set acczero_z = 26
+set accgain_x = 4090
+set accgain_y = 4086
+set accgain_z = 4031
+set align_mag = CW270FLIP
+set mag_hardware = NONE
+set baro_hardware = BMP280
+set serialrx_provider = CRSF
+set blackbox_rate_denom = 2
+set motor_pwm_protocol = DSHOT300
+set motor_poles = 12
+set current_meter_scale = 11
+set current_meter_offset = 74
+set current_meter_type = VIRTUAL
+set small_angle = 180
+set applied_defaults = 4
+set gps_sbas_mode = AUTO
+set gps_ublox_use_galileo = ON
+set gps_ublox_use_beidou = ON
+set gps_ublox_use_glonass = ON
+set airmode_type = STICK_CENTER_ONCE
+set nav_wp_radius = 1000
+set nav_wp_max_safe_distance = 500
+set nav_rth_allow_landing = FS_ONLY
+set nav_rth_altitude = 5000
+set nav_fw_bank_angle = 45
+set nav_fw_control_smoothness = 2
+set nav_fw_launch_max_angle = 180
+set nav_fw_launch_motor_delay = 100
+set nav_fw_launch_timeout = 10000
+set nav_fw_launch_max_altitude = 5000
+set nav_fw_launch_climb_angle = 40
+set osd_rssi_dbm_alarm = -95
+set osd_crosshairs_style = TYPE7
+set i2c_speed = 800KHZ
+set tz_offset = 180
+set vtx_band = 2
+set vtx_channel = 6
+set vtx_power = 4
+set vtx_low_power_disarm = UNTIL_FIRST_ARM
+
+# control_profile
+control_profile 1
+
+set fw_p_pitch = 15
+set fw_i_pitch = 5
+set fw_d_pitch = 5
+set fw_ff_pitch = 70
+set fw_p_roll = 15
+set fw_i_roll = 3
+set fw_d_roll = 7
+set fw_p_yaw = 57
+set fw_i_yaw = 20
+set fw_d_yaw = 8
+set fw_ff_yaw = 100
+set max_angle_inclination_rll = 550
+set dterm_lpf_hz = 10
+set fw_turn_assist_pitch_gain =  0.300
+set nav_fw_pos_z_p = 35
+set nav_fw_pos_xy_p = 70
+set d_boost_min =  1.000
+set d_boost_max =  1.000
+set fw_level_pitch_trim =  4.000
+set rc_expo = 30
+set rc_yaw_expo = 30
+set roll_rate = 18
+set pitch_rate = 9
+set yaw_rate = 4
+set rate_dynamics_center_sensitivity = 80
+
+# control_profile
+control_profile 2
+
+set mc_p_pitch = 46
+set mc_i_pitch = 10
+set mc_d_pitch = 8
+set mc_cd_pitch = 50
+set mc_p_roll = 70
+set mc_i_roll = 10
+set mc_p_yaw = 60
+set mc_i_yaw = 19
+set mc_d_yaw = 4
+set mc_cd_yaw = 59
+set mc_p_level = 40
+
+# control_profile
+control_profile 3
+
+
+# mixer_profile
+mixer_profile 1
+
+set platform_type = AIRPLANE
+set model_preview_type = 27
+set mixer_pid_profile_linking = ON
+
+# Mixer: motor mixer
+
+mmix reset
+
+mmix 0  1.000  0.000  0.000 -0.300
+mmix 1  1.000  0.000  0.000  0.300
+
+# Mixer: servo mixer
+smix reset
+
+smix 0 1 0 50 0 -1
+smix 1 1 1 50 0 -1
+smix 2 2 0 -50 0 -1
+smix 3 2 1 50 0 -1
+
+# mixer_profile
+mixer_profile 2
+
+set model_preview_type = 3
+set mixer_pid_profile_linking = ON
+set tailsitter_orientation_offset = ON
+
+# Mixer: motor mixer
+
+mmix reset
+
+mmix 0  1.000 -1.000  0.000  0.000
+mmix 1  1.000  1.000  0.000  0.000
+
+# Mixer: servo mixer
+smix reset
+
+smix 0 1 1 80 0 -1
+smix 1 1 2 50 0 -1
+smix 2 2 1 80 0 -1
+smix 3 2 2 -50 0 -1
+
+# battery_profile
+battery_profile 1
+
+set vbat_cell_detect_voltage = 437
+set vbat_max_cell_voltage = 435
+set vbat_min_cell_voltage = 310
+set vbat_warning_cell_voltage = 320
+set battery_capacity = 550
+set throttle_idle =  5.000
+
+# battery_profile
+battery_profile 2
+
+set throttle_idle =  5.000
+
+# battery_profile
+battery_profile 3
+
+set throttle_idle =  5.000
+
+# restore original profile selection
+control_profile 1
+mixer_profile 1
+battery_profile 1
+
+# save configuration
+save
+
+# 
